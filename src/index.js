@@ -16,7 +16,8 @@ module.exports = function(html, options){
 
   // Pass the HTML to each module
   for (var i in modules)
-    html = eachTextNode(html, modules[i], options);
+    if (options[i] !== false)
+      html = eachTextNode(html, modules[i], options);
 
   return html;
 };
